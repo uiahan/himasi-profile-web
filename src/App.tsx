@@ -296,7 +296,7 @@ export default function App(): React.JSX.Element {
       <div className="fixed bottom-4 sm:bottom-6 left-0 right-0 z-50 px-4 sm:px-8 flex items-center justify-between pointer-events-none">
         
         {/* TOMBOL KEMBALI */}
-        <div className="pointer-events-auto">
+        <div className="pointer-events-auto hidden">
           {showPrevBtn && (
             <button
               id="prev-btn"
@@ -325,7 +325,7 @@ export default function App(): React.JSX.Element {
             </button>
           ) : (
             showNextBtn && (
-              <SlideUnlock onSuccess={handleNextClick} text="GESER LANJUT >>" />
+              <SlideUnlock onSuccess={handleNextClick} text="NOTE : GESER UNTUK LANJUT >>" />
             )
           )}
         </div>

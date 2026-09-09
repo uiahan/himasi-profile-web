@@ -54,12 +54,14 @@ const Section4 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
       <div className="kinetic-strip strip-1 absolute -top-10 -left-10 w-[120%] h-32 bg-persona/40 transform -rotate-6 pointer-events-none z-0"></div>
       <div className="kinetic-strip strip-2 absolute -bottom-10 -right-10 w-[120%] h-40 bg-persona-light/20 transform -rotate-3 pointer-events-none z-0"></div>
 
-      <div 
-        ref={containerRef}
-        className="section-content relative z-10 overflow-y-auto max-h-screen flex justify-center" 
-        onScroll={onScroll}
-      >
-        <div className="max-w-6xl w-full z-10 min-h-screen py-10 sm:py-16 px-4 sm:px-6 flex flex-col justify-center">
+      {/* 1. Ubah max-h-screen & flex justify-center menjadi h-full w-full block */}
+<div 
+  ref={containerRef}
+  className="section-content relative z-10 overflow-y-auto h-full w-full block" 
+  onScroll={onScroll}
+>
+  {/* 2. Ubah min-h-screen & flex justify-center menjadi mx-auto & padding bottom yang tinggi */}
+  <div className="max-w-6xl w-full mx-auto z-10 pt-12 sm:pt-16 pb-40 sm:pb-52 px-4 sm:px-6 flex flex-col justify-start">
           
           {/* HEADER SECTION */}
           <div className="space-y-4 mb-8 sm:mb-10 text-center lg:text-left">
@@ -106,7 +108,7 @@ const Section4 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
           </div>
 
           {/* DEPARTMENTS GRID */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid pb-28 lg:pb-20 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {DEPARTMENTS.map((dept, index) => (
               <div 
                 key={index} 

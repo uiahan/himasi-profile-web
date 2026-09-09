@@ -52,7 +52,7 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
         <div className="max-w-4xl w-full mx-auto pt-16 sm:pt-20 pb-48 sm:pb-56 px-4 sm:px-6 flex flex-col items-center">
           
           {/* HEADER SECTION - Comic Ribbon & Skewed Text */}
-          <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-16 text-center w-full">
+          <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-16 text-center w-full  ">
             <div className="p-elem inline-flex items-center justify-center">
               <div className="bg-persona border-3 border-black text-white px-4 py-1.5 font-['Montserrat'] font-black italic tracking-widest text-xs uppercase shadow-[5px_5px_0px_#000] transform -skew-x-12 hover:skew-x-0 hover:bg-white hover:text-black transition-all cursor-pointer">
                 <span className="inline-block transform skew-x-12 hover:skew-x-0">
@@ -139,7 +139,7 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
 
             {/* ================= KARTU 2: WAKIL KETUA HIMPUNAN ================= */}
             <div 
-              className="p-elem relative group w-full max-w-2xl cursor-pointer transition-transform duration-300 ease-out"
+              className="p-elem lg:mb-20 mb-28 relative group w-full max-w-2xl cursor-pointer transition-transform duration-300 ease-out"
               style={{ transform: `rotateY(${mousePos.x * 10}deg) rotateX(${-mousePos.y * 10}deg)` }}
             >
               {/* Persona 5 Explosive Comic Backdrop */}
