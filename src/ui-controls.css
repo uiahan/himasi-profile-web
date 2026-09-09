@@ -1,0 +1,49 @@
+/* =========================================================
+   INITIAL LOADER - BRUTAL COMIC ANIMATIONS
+   ========================================================= */
+
+@keyframes loaderTitlePulse {
+  0%, 100% {
+    transform: rotate(-3deg) scale(1) skewX(-2deg);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.04) skewX(2deg);
+  }
+}
+
+@keyframes loaderPercentGlitch {
+  0%, 100% {
+    transform: skewX(-6deg) scale(1);
+    filter: drop-shadow(6px 6px 0px #000000);
+  }
+  25% {
+    transform: skewX(4deg) scale(1.02) translateX(-2px);
+    filter: drop-shadow(-6px 6px 0px #124D1C);
+  }
+  75% {
+    transform: skewX(-10deg) scale(0.99) translateY(-2px);
+    filter: drop-shadow(8px -4px 0px #000000);
+    -webkit-filter: drop-shadow(8px -4px 0px #000000);
+}
+}
+
+#persona-loader {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+#persona-loader.fade-out {
+  opacity: 0;
+  transform: translateY(-40px) scale(1.05) rotate(2deg);
+  pointer-events: none;
+}
+
+/* Penerapan Animasi pada Judul dan Angka Persentase */
+#persona-loader h1 {
+  animation: loaderTitlePulse 2.5s ease-in-out infinite;
+}
+
+#persona-loader .relative.flex.items-baseline {
+  animation: loaderPercentGlitch 0.8s ease-in-out infinite alternate;
+}

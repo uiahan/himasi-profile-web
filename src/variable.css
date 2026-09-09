@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-persona: #124D1C;
+  --color-persona-dark: #08260e;
+  --color-persona-light: #1b6b28;
+  --color-persona-bg: #000000;
+}
+
+/* Base Loader Override */
+body.is-loading .p-elem {
+  opacity: 0 !important;
+  transform: translateY(80px) rotate(-8deg) skewX(-20deg) scale(0.8) !important;
+  transition: none !important;
+}
+
+body:not(.is-loading) .persona-section.active .p-elem {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg) skewX(0deg) scale(1);
+}

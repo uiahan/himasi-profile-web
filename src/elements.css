@@ -1,0 +1,84 @@
+/* =========================================================
+   ELEMENTS (P-ELEM) - REFINED PERSONA 5 STYLE (BALANCED)
+   ========================================================= */
+
+/* KEYFRAMES IDLE (Lebih Halus & Ringan) */
+@keyframes pElemIdleOdd {
+  0%, 100% {
+    transform: translateY(0px) rotate(-0.8deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.5deg);
+  }
+}
+
+@keyframes pElemIdleEven {
+  0%, 100% {
+    transform: translateY(0px) rotate(0.8deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-0.5deg);
+  }
+}
+
+/* ANIMASI MASUK (Snappy Comic Pop - Tidak Pusing) */
+@keyframes pElemComicPop {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) rotate(-4deg) scale(0.92);
+  }
+  70% {
+    transform: translateY(-4px) rotate(1deg) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+/* BASE ELEMEN TERSEMBUNYI */
+.p-elem {
+  opacity: 0;
+  transform: translateY(40px) rotate(-4deg) scale(0.92);
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* STATE MASUK (P-Elem Active + Smooth Idle Loop) */
+.persona-section.active .p-elem {
+  opacity: 1;
+  animation: pElemComicPop 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+             pElemIdleOdd 4s ease-in-out infinite 0.45s alternate;
+}
+
+.persona-section.active .p-elem:nth-child(even) {
+  animation: pElemComicPop 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+             pElemIdleEven 4.5s ease-in-out infinite 0.5s alternate;
+}
+
+/* STAGGERED DELAY (Lebih Cepat & Smooth) */
+.persona-section.active .p-elem:nth-child(1) { animation-delay: 0.04s, 0.44s; }
+.persona-section.active .p-elem:nth-child(2) { animation-delay: 0.08s, 0.48s; }
+.persona-section.active .p-elem:nth-child(3) { animation-delay: 0.12s, 0.52s; }
+.persona-section.active .p-elem:nth-child(4) { animation-delay: 0.16s, 0.56s; }
+.persona-section.active .p-elem:nth-child(5) { animation-delay: 0.20s, 0.60s; }
+.persona-section.active .p-elem:nth-child(6) { animation-delay: 0.24s, 0.64s; }
+
+/* STATE KELUAR (Clean Fast Shift Out) */
+.persona-section.leaving .p-elem {
+  opacity: 0 !important;
+  animation: none !important;
+  transform: translateY(-30px) rotate(3deg) scale(0.96) !important;
+  transition: opacity 0.2s ease-in, transform 0.2s cubic-bezier(0.4, 0, 1, 1) !important;
+}
+
+/* EFEK HOVER - CLEAN COMIC SNAP */
+.p-elem:hover {
+  animation-play-state: paused !important;
+  transform: translateY(-4px) rotate(-1deg) scale(1.03) !important;
+  filter: drop-shadow(-6px 6px 0px #000000) 
+          drop-shadow(4px -4px 0px #1b6b28);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.15s ease !important;
+  z-index: 20;
+  cursor: pointer;
+}
