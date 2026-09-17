@@ -110,9 +110,9 @@ const Section3 = forwardRef<HTMLElement, SectionProps>(
                   </h3>
 
                   <p className="text-sm sm:text-base text-gray-100 font-bold leading-relaxed border-t-2 border-white/20 pt-4">
-                    Menjadi himpunan mahasiswa yang unggul, berintegritas, dan
-                    terdepan dalam inovasi teknologi Sistem Informasi serta
-                    membawa dampak positif nyata.
+                    MENCIPTAKAN ORGANISASI YANG SISTEMATIS DALAM MEMBANGUN
+                    KAPASITAS SERTA MENGHADIRKAN INOVASI MELALUI KOLABORASI
+                    BERLANDASKAN TRI DHARMA PERGURUAN TINGGI
                   </p>
                 </div>
               </div>
@@ -142,8 +142,9 @@ const Section3 = forwardRef<HTMLElement, SectionProps>(
                         01
                       </span>
                       <p className="text-xs sm:text-sm text-gray-200 font-bold leading-relaxed">
-                        Meningkatkan kualitas skill teknikal dan akademik
-                        seluruh anggota melalui riset dan pelatihan.
+                        Menerapkan perencanaan, pelaksanaan, dan evaluasi
+                        program kerja sebagai bentuk penguatan tata kelola
+                        organisasi yang terstruktur dan efektif.
                       </p>
                     </li>
 
@@ -152,8 +153,10 @@ const Section3 = forwardRef<HTMLElement, SectionProps>(
                         02
                       </span>
                       <p className="text-xs sm:text-sm text-gray-200 font-bold leading-relaxed">
-                        Membangun ekosistem kolaboratif yang solid antar civitas
-                        akademika dan alumni.
+                        Memaksimallkan kapasitas kader secara menyeluruh, baik
+                        dalam aspek akademik, kepemimpinan, karakter, maupun
+                        keterampilan teknologi, sebagai bekal menghadapi
+                        tantangan masa depan.
                       </p>
                     </li>
 
@@ -162,8 +165,28 @@ const Section3 = forwardRef<HTMLElement, SectionProps>(
                         03
                       </span>
                       <p className="text-xs sm:text-sm text-gray-200 font-bold leading-relaxed">
-                        Melaksanakan pengabdian masyarakat berbasiskan solusi
-                        teknologi digital terkini.
+                        Membangun budaya kolaborasi yang inklusif dan produktif,
+                        baik di internal organisasi maupun dengan pihak
+                        eksternal.
+                      </p>
+                    </li>
+                    <li className="flex items-start gap-4 group/item">
+                      <span className="bg-persona border-2 border-white text-white font-['Montserrat'] font-black text-xs px-2.5 py-1 mt-0.5 shadow-[3px_3px_0px_#000] transform -skew-x-6 group-hover/item:bg-white group-hover/item:text-black transition-all">
+                        04
+                      </span>
+                      <p className="text-xs sm:text-sm text-gray-200 font-bold leading-relaxed">
+                        Memfokuskan lahirnya inovasi yang relevan dan
+                        berkelanjutan dalam setiap aktivitas organisasi
+                      </p>
+                    </li>
+                    <li className="flex items-start gap-4 group/item">
+                      <span className="bg-persona border-2 border-white text-white font-['Montserrat'] font-black text-xs px-2.5 py-1 mt-0.5 shadow-[3px_3px_0px_#000] transform -skew-x-6 group-hover/item:bg-white group-hover/item:text-black transition-all">
+                        05
+                      </span>
+                      <p className="text-xs sm:text-sm text-gray-200 font-bold leading-relaxed">
+                        Membangunkan karakter kepemimpinan yang berintegritas,
+                        adaptif, dan bertanggung jawab dalam mengelola
+                        organisasi dan pengabdian kepada masyarakat.
                       </p>
                     </li>
                   </ul>

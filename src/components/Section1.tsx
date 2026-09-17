@@ -112,7 +112,7 @@ const Section1 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
             {/* Speech Box */}
             <div className="p-elem max-w-xl w-full mx-auto lg:mx-0 transform -skew-x-2">
               <p className="text-white text-xs sm:text-sm lg:text-base font-bold border-3 sm:border-4 border-black bg-black/90 p-3.5 sm:p-5 shadow-[6px_6px_0px_#124D1C] sm:shadow-[8px_8px_0px_#124D1C] leading-relaxed text-center sm:text-left border-l-[8px] sm:border-l-[12px] border-l-persona-light hover:border-l-white transition-all">
-                Wadah pergerakan, inovasi teknologi, dan aspirasi utama mahasiswa Sistem Informasi Universitas Bina Sarana Informatika PSHD Sukabumi.
+                Wadah pergerakan, inovasi teknologi, dan aspirasi utama mahasiswa Sistem Informasi Universitas Bina Sarana Informatika Sukabumi.
               </p>
             </div>
 
@@ -138,7 +138,7 @@ const Section1 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
                     Periode
                   </span>
                   <span className="text-black font-black italic text-[11px] sm:text-xs block -mt-0.5">
-                    2026 / 2027
+                    2026
                   </span>
                 </div>
               </div>
