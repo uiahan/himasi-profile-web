@@ -12,7 +12,7 @@ const BPH_MEMBERS: BPHMember[] = [
   { name: "Sanda", role: "Sekretaris Umum 1", img: "img/sanda-bph.png" },
   { name: "Nesya", role: "Sekretaris Umum 2", img: "img/nesya-bph.png" },
   { name: "Syifa", role: "Bendahara 1", img: "img/syifa-bph.png" },
-  { name: "Dhiya", role: "Bendahara 2", img: "img/dhiya-bph.png" },
+  { name: "Dhiyaa", role: "Bendahara 2", img: "img/dhiya-bph.png" },
 ];
 
 interface SectionProps {
