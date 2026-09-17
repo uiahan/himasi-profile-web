@@ -1,41 +1,96 @@
 import React, { forwardRef, useState, useRef } from "react";
 
-interface DepartmentItem {
+export interface MemberItem {
+  name: string;
+  role: string;
+  img: string;
+}
+
+export interface DepartmentItem {
+  id: string;
   logo: string;
   title: string;
   desc: string;
+  members: MemberItem[];
 }
 
+// Data Departemen & Anggotanya berdasarkan daftar nama file
 const DEPARTMENTS: DepartmentItem[] = [
   {
+    id: "HUKESMA",
     logo: "img/hukesma.jpeg",
     title: "HUKESMA",
-    desc: "Departemen Hubungan Kesejahteraan Mahasiswa (HUKESMA) merupakan departemen dalam Himpunan Mahasiswa Sistem Informasi (HIMASI) yang berperan sebagai penghubung antara mahasiswa, organisasi, dan pihak eksternal. HUKESMA berfokus pada pengelolaan relasi, penyampaian informasi, serta penampungan aspirasi mahasiswa guna mendukung kesejahteraan mahasiswa baik dalam aspek akademik maupun non-akademik.",
+    desc: "Departemen Hubungan Kesejahteraan Mahasiswa (HUKESMA) merupakan departemen dalam Himpunan Mahasiswa Sistem Informasi (HIMASI) yang berperan sebagai penghubung antara mahasiswa, organisasi, dan pihak eksternal.",
+    members: [
+      { name: "Fauzan", role: "Anggota HUKESMA", img: "img/fauzan-hukesma.png" },
+      { name: "Hummaira", role: "Anggota HUKESMA", img: "img/hummaira-hukesma.png" },
+      { name: "Resi", role: "Anggota HUKESMA", img: "img/resi-hukesma.png" },
+      { name: "Reva", role: "Anggota HUKESMA", img: "img/reva-hukesma.png" },
+      { name: "Anisa", role: "Anggota HUKESMA", img: "img/anisa-hukesma.png" },
+    ],
   },
   {
+    id: "EKRAF",
     logo: "img/LOGO-EKRAF.jpg",
     title: "EKRAF",
-    desc: "Departemen Ekonomi Kreatif (EKRAF) berfokus pada pengembangan jiwa kewirausahaan, pendanaan mandiri organisasi, dan inovasi bisnis kreatif. EKRAF hadir sebagai wadah eksplorasi potensi ekonomi mahasiswa melalui pengelolaan merchandise, kemitraan strategis, serta program kemandirian finansial HIMASI.",
+    desc: "Departemen Ekonomi Kreatif (EKRAF) berfokus pada pengembangan jiwa kewirausahaan, pendanaan mandiri organisasi, dan inovasi bisnis kreatif.",
+    members: [
+      { name: "Hilma", role: "Anggota EKRAF", img: "img/hilma-ekraf.png" },
+      { name: "Afriza", role: "Anggota EKRAF", img: "img/afriza-ekraf.png" },
+      { name: "Daud", role: "Anggota EKRAF", img: "img/daud-ekraf.png" },
+    ],
   },
   {
+    id: "PM",
     logo: "img/LOGO-PM-NO-BG.png",
     title: "PM",
-    desc: "Menjadikan Departemen Pengabdian Masyarakat HIMASI sebagai motor penggerak pengabdian yang inklusif, berkelanjutan, dan berdampak nyata melalui pemberdayaan komunitas, pelestarian lingkungan, serta kolaborasi strategis yang mendukung citra positif dan keberlanjutan organisasi.",
+    desc: "Menjadikan Departemen Pengabdian Masyarakat HIMASI sebagai motor penggerak pengabdian yang inklusif, berkelanjutan, dan berdampak nyata.",
+    members: [
+      { name: "Devina", role: "Anggota PM", img: "img/devina-pm.png" },
+      { name: "Ghifran", role: "Anggota PM", img: "img/ghifran-pm.png" },
+      { name: "Ludra", role: "Anggota PM", img: "img/ludra-pm.png" },
+      { name: "Marlinda", role: "Anggota PM", img: "img/marlinda-pm.png" },
+      { name: "Nabila", role: "Anggota PM", img: "img/nabila-pm.png" },
+      { name: "Aksal", role: "Anggota PM", img: "img/aksal-pm.png" },
+    ],
   },
   {
+    id: "PSDA",
     logo: "img/logo-PSDA-(2).png",
     title: "PSDA",
-    desc: "Departemen Pemberdayaan Sumber Daya Akademik (PSDA) merupakan elemen strategis dalam HIMASI yang berperan sebagai fasilitator pengembangan potensi akademik. PSDA berfokus pada peningkatan kompetensi serta penguatan soft skill mahasiswa Sistem Informasi.",
+    desc: "Departemen Pemberdayaan Sumber Daya Akademik (PSDA) merupakan elemen strategis dalam HIMASI yang berperan sebagai fasilitator pengembangan potensi akademik.",
+    members: [
+      { name: "Raffi", role: "Anggota PSDA", img: "img/raffi-psda.png" },
+      { name: "Shinta", role: "Anggota PSDA", img: "img/shinta-psda.png" },
+      { name: "Farhan", role: "Anggota PSDA", img: "img/farhan-psda.jpg" },
+      { name: "Danesya", role: "Anggota PSDA", img: "img/danesya-psda.png" },
+    ],
   },
   {
+    id: "PSDM",
     logo: "img/logo-PSDM.png",
     title: "PSDM",
-    desc: "Departemen Pemberdayaan Sumber Daya Mahasiswa (PSDM) merupakan salah satu pilar utama dalam struktur organisasi Himpunan Mahasiswa Sistem Informasi (HIMASI). Departemen ini memiliki peran penting dalam membina dan mengembangkan kualitas mahasiswa Sistem Informasi, baik dari sisi kemampuan intelektual, karakter, maupun kesiapan mereka dalam berorganisasi. Fokus utama PSDM adalah menciptakan lingkungan pengembangan diri yang terarah melalui berbagai program yang mendorong mahasiswa menjadi pribadi yang kompeten, adaptif, dan berintegritas.",
+    desc: "Departemen Pemberdayaan Sumber Daya Mahasiswa (PSDM) memiliki peran penting dalam membina dan mengembangkan kualitas mahasiswa Sistem Informasi.",
+    members: [
+      { name: "Haykal", role: "Anggota PSDM", img: "img/haykal-psdm.png" },
+      { name: "Satura", role: "Anggota PSDM", img: "img/satura-psdm.png" },
+      { name: "Vanesh", role: "Anggota PSDM", img: "img/vanesh-psdm.png" },
+      { name: "Vina", role: "Anggota PSDM", img: "img/vina-psdm.png" },
+      { name: "Arya", role: "Anggota PSDM", img: "img/arya-psdm.png" },
+      { name: "Aurin", role: "Anggota PSDM", img: "img/aurin-psdm.png" },
+    ],
   },
   {
+    id: "MNC",
     logo: "img/LOGO-MNC.PNG",
     title: "MNC",
-    desc: "Departemen Media & Creative HIMASI sebagai pusat kreativitas inovatif dan profesional dalam membangun identitas visual serta komunikasi digital yang inspiratif, mendukung citra positif dan keberlanjutan organisasi.",
+    desc: "Departemen Media & Creative HIMASI sebagai pusat kreativitas inovatif dan profesional dalam membangun identitas visual serta komunikasi digital.",
+    members: [
+      { name: "Nabilla", role: "Anggota MNC", img: "img/nabilla-mnc.png" },
+      { name: "Padlan", role: "Anggota MNC", img: "img/padlan-mnc.png" },
+      { name: "Ananda", role: "Anggota MNC", img: "img/ananda-mnc.png" },
+      { name: "Deasy", role: "Anggota MNC", img: "img/deasy-mnc.png" },
+    ],
   },
 ];
 
@@ -48,6 +103,7 @@ interface SectionProps {
 const Section4 = forwardRef<HTMLElement, SectionProps>(
   ({ isActive, isLeaving, onScroll }, ref) => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [selectedDept, setSelectedDept] = useState<DepartmentItem | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -136,6 +192,7 @@ const Section4 = forwardRef<HTMLElement, SectionProps>(
               {DEPARTMENTS.map((dept, index) => (
                 <div
                   key={index}
+                  onClick={() => setSelectedDept(dept)}
                   className="p-elem relative group flex flex-col cursor-pointer transition-transform duration-200 ease-out"
                   style={{
                     transform: `rotateY(${mousePos.x * 12}deg) rotateX(${-mousePos.y * 12}deg)`,
@@ -147,13 +204,13 @@ const Section4 = forwardRef<HTMLElement, SectionProps>(
 
                     <div>
                       <div className="flex items-center justify-center">
-                      <div className="w-52 h-52 mb-4 overflow-hidden rounded border-2 border-white/20 bg-white/5 p-1 group-hover:scale-110 group-hover:border-white transition-all transform -skew-x-6 flex items-center justify-center">
-                        <img
-                          src={dept.logo}
-                          alt={`Logo ${dept.title}`}
-                          className="max-w-full max-h-full object-contain filter drop-shadow"
-                        />
-                      </div>
+                        <div className="w-52 h-52 mb-4 overflow-hidden rounded border-2 border-white/20 bg-white/5 p-1 group-hover:scale-110 group-hover:border-white transition-all transform -skew-x-6 flex items-center justify-center">
+                          <img
+                            src={dept.logo}
+                            alt={`Logo ${dept.title}`}
+                            className="max-w-full max-h-full object-contain filter drop-shadow"
+                          />
+                        </div>
                       </div>
                       <h4 className="text-xl font-['Montserrat'] font-black italic uppercase text-white mb-2 tracking-tight transform -skew-x-3 group-hover:translate-x-1 transition-transform text-center">
                         {dept.title}
@@ -162,15 +219,80 @@ const Section4 = forwardRef<HTMLElement, SectionProps>(
                         {dept.desc}
                       </p>
                     </div>
+
+                    <div className="mt-4 pt-3 border-t-2 border-dashed border-zinc-700 flex justify-between items-center text-xs text-persona-light font-black italic">
+                      <span>KLIK DISINI</span>
+                      <span className="bg-persona text-white px-2 py-0.5 border border-black transform -skew-x-6">
+                        {dept.members.length} MEMBERS
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
+
+        {/* MODAL POPUP ANGGOTA DEPARTEMEN */}
+        {selectedDept && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+            <div className="relative w-full max-w-4xl bg-black border-4 border-white p-6 sm:p-8 shadow-[20px_20px_0px_#124D1C] max-h-[85vh] flex flex-col overflow-hidden">
+              
+              {/* TOMBOL CLOSE */}
+              <button
+                onClick={() => setSelectedDept(null)}
+                className="absolute top-4 right-4 bg-persona text-white font-black px-4 py-2 border-3 border-black hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_#000] transform -skew-x-6 z-30"
+              >
+                ✕ CLOSE
+              </button>
+
+              {/* HEADER MODAL */}
+              <div className="mb-6 flex items-center gap-4 border-b-4 border-white pb-4">
+                <img
+                  src={selectedDept.logo}
+                  alt={selectedDept.title}
+                  className="w-16 h-16 object-contain border-2 border-white bg-white/10 p-1"
+                />
+                <div>
+                  <span className="bg-persona-light text-black text-xs font-black italic px-2 py-0.5 border border-black transform -skew-x-6 inline-block mb-1">
+                    DEPARTMENT MEMBERS
+                  </span>
+                  <h3 className="text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-wider">
+                    {selectedDept.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* GRID MEMBER / ANGGOTA */}
+              <div className="overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-2">
+                {selectedDept.members.map((member, i) => (
+                  <div
+                    key={i}
+                    className="relative bg-zinc-900 border-2 border-white p-3 shadow-[6px_6px_0px_#000] hover:scale-105 transition-all group"
+                  >
+                    <div className="w-full h-40 bg-black border border-zinc-700 overflow-hidden mb-2 relative flex items-center justify-center">
+                      <img
+                        src={member.img}
+                        alt={member.name}
+                        className="w-full h-full object-top object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-persona/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h5 className="font-['Montserrat'] font-black italic text-white text-sm uppercase truncate">
+                      {member.name}
+                    </h5>
+                    <span className="text-[10px] text-gray-400 block font-bold truncate">
+                      {member.role}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     );
-  },
+  }
 );
 
 Section4.displayName = "Section4";

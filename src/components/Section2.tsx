@@ -1,5 +1,20 @@
 import React, { forwardRef, useState, useRef } from "react";
 
+interface BPHMember {
+  name: string;
+  role: string;
+  img: string;
+}
+
+const BPH_MEMBERS: BPHMember[] = [
+  { name: "Dhiya", role: "Pengurus BPH", img: "img/dhiya-bph.png" },
+  { name: "Genta", role: "Pengurus BPH", img: "img/genta-bph.png" },
+  { name: "Nesya", role: "Pengurus BPH", img: "img/nesya-bph.png" },
+  { name: "Sanda", role: "Pengurus BPH", img: "img/sanda-bph.png" },
+  { name: "Syifa", role: "Pengurus BPH", img: "img/syifa-bph.png" },
+  { name: "Aldi", role: "Pengurus BPH", img: "img/aldi-bph.png" },
+];
+
 interface SectionProps {
   isActive: boolean;
   isLeaving: boolean;
@@ -33,13 +48,9 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
       } ${isLeaving ? "leaving" : ""}`}
       style={{ backgroundImage: 'url("img/background.jpg")' }}
     >
-      {/* Overlay Solid High-Contrast */}
       <div className="absolute inset-0 bg-persona-dark/95 pointer-events-none z-0"></div>
-
-      {/* Dynamic Scanline Effect */}
       <div className="absolute inset-0 bg-scanline pointer-events-none z-0 opacity-40"></div>
 
-      {/* Decorative Kinetic Cutout Strips */}
       <div className="kinetic-strip strip-1 absolute -top-10 -left-10 w-[120%] h-32 bg-persona/40 transform -rotate-6 pointer-events-none z-0"></div>
       <div className="kinetic-strip strip-2 absolute -bottom-10 -right-10 w-[120%] h-40 bg-persona-light/20 transform -rotate-3 pointer-events-none z-0"></div>
 
@@ -48,15 +59,14 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
         className="section-content relative z-10 overflow-y-auto h-full max-h-screen w-full" 
         onScroll={onScroll}
       >
-        {/* MODIFIKASI: Menambahkan padding-bottom yang lebih lega (pb-48 di mobile & pb-56 di desktop) */}
         <div className="max-w-4xl w-full mx-auto pt-16 sm:pt-20 pb-48 sm:pb-56 px-4 sm:px-6 flex flex-col items-center">
           
-          {/* HEADER SECTION - Comic Ribbon & Skewed Text */}
-          <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-16 text-center w-full  ">
+          {/* HEADER SECTION */}
+          <div className="space-y-3 sm:space-y-4 mb-12 sm:mb-16 text-center w-full">
             <div className="p-elem inline-flex items-center justify-center">
               <div className="bg-persona border-3 border-black text-white px-4 py-1.5 font-['Montserrat'] font-black italic tracking-widest text-xs uppercase shadow-[5px_5px_0px_#000] transform -skew-x-12 hover:skew-x-0 hover:bg-white hover:text-black transition-all cursor-pointer">
                 <span className="inline-block transform skew-x-12 hover:skew-x-0">
-                  CHAPTER 02 // LEADERSHIP
+                  CHAPTER 02 // LEADERSHIP & BPH
                 </span>
               </div>
             </div>
@@ -66,122 +76,94 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
                 className="inline-block text-3xl sm:text-6xl text-white tracking-tighter drop-shadow-[6px_6px_0px_#000] transform -skew-x-6 mr-3 hover:translate-x-2 transition-transform cursor-pointer"
                 style={{ transform: `translateX(${mousePos.x * 15}px)` }}
               >
-                PIMPINAN
+                PIMPINAN &
               </span>
               <span 
                 className="inline-block bg-persona-light text-black text-2xl sm:text-5xl px-4 py-1.5 tracking-normal border-4 border-black shadow-[8px_8px_0px_#000] transform -skew-x-6 hover:-skew-x-12 hover:bg-white transition-all cursor-pointer"
                 style={{ transform: `translateX(${-mousePos.x * 20}px)` }}
               >
-                HIMPUNAN
+                BPH HIMPUNAN
               </span>
             </h2>
 
             <div className="p-elem max-w-lg mx-auto transform -skew-x-2">
               <p className="text-white text-xs sm:text-sm lg:text-base font-bold border-4 border-black bg-black/90 p-4 sm:p-5 shadow-[8px_8px_0px_#124D1C] leading-relaxed text-center border-l-[12px] border-l-persona-light">
-                Nahkoda utama pergerakan dan penentu arah strategis HIMASI UBSI Sukabumi.
+                Nahkoda utama pergerakan dan pengurus harian penentu arah strategis HIMASI UBSI Sukabumi.
               </p>
             </div>
           </div>
 
-          {/* STACKED CARDS CONTAINER */}
-          <div className="flex flex-col gap-12 sm:gap-20 w-full items-center mb-8 sm:mb-12">
+          {/* STACKED CARDS CONTAINER (KAHIM & WAKAHIM) */}
+          <div className="flex flex-col gap-12 sm:gap-16 w-full items-center mb-12">
             
-            {/* ================= KARTU 1: KETUA HIMPUNAN ================= */}
+            {/* KAHIM */}
             <div 
               className="p-elem relative group w-full max-w-2xl cursor-pointer transition-transform duration-300 ease-out"
               style={{ transform: `rotateY(${mousePos.x * 10}deg) rotateX(${-mousePos.y * 10}deg)` }}
             >
-              {/* Persona 5 Explosive Comic Backdrop */}
               <div className="absolute -inset-4 bg-persona-light transform -rotate-2 border-4 border-black group-hover:scale-102 group-hover:-rotate-4 transition-all duration-300"></div>
               <div className="absolute -inset-2 bg-white transform rotate-1 border-4 border-black group-hover:rotate-2 transition-all duration-300"></div>
               
               <div className="relative bg-black border-4 border-white p-6 sm:p-8 shadow-[16px_16px_0px_#000] group-hover:shadow-[22px_22px_0px_#124D1C] transition-all duration-300">
-                
-                {/* Comic Corner Stamp */}
                 <div className="absolute -top-5 -left-5 bg-persona text-white font-black italic px-4 py-2 border-3 border-black text-xs sm:text-sm transform -rotate-12 shadow-[4px_4px_0px_#000] z-30">
                   LEADER // 01
                 </div>
-                <div className="absolute top-0 right-0 w-12 h-12 bg-persona border-l-4 border-b-4 border-black z-20 group-hover:w-16 group-hover:h-16 transition-all"></div>
-
                 <div className="grid sm:grid-cols-12 gap-6 items-center">
-                  {/* Frame Foto KAHIM */}
                   <div className="sm:col-span-5 w-full h-72 sm:h-80 bg-zinc-950 border-3 border-black relative overflow-hidden flex items-center justify-center p-2 shadow-[6px_6px_0px_#000]">
-                    <span className="absolute top-2 left-2 bg-white text-black text-[9px] font-black tracking-tighter px-2 py-0.5 border-2 border-black transform rotate-6 z-20">
-                      POS // KAHIM
-                    </span>
                     <img
                       src="img/kahim.webp"
                       alt="Ketua Himpunan"
-                      className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-2 drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] z-10"
+                      className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] z-10"
                     />
-                    <div className="absolute inset-0 bg-persona-light/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-15"></div>
                   </div>
-
-                  {/* Detail Informasi KAHIM */}
                   <div className="sm:col-span-7 space-y-4">
-                    <div className="inline-block bg-persona border-3 border-black px-3.5 py-1 shadow-[4px_4px_0px_#000] transform -skew-x-6 group-hover:skew-x-0 transition-all">
-                      <span className="font-['Montserrat'] font-black italic text-xs text-white uppercase tracking-wider block transform skew-x-6 group-hover:skew-x-0">
+                    <div className="inline-block bg-persona border-3 border-black px-3.5 py-1 shadow-[4px_4px_0px_#000] transform -skew-x-6">
+                      <span className="font-['Montserrat'] font-black italic text-xs text-white uppercase tracking-wider block">
                         KETUA HIMPUNAN UMUM
                       </span>
                     </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-tight transform -skew-x-3 group-hover:translate-x-1 transition-transform">
+                    <h3 className="text-2xl sm:text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-tight">
                       Genta Wahyu Pratama
                     </h3>
-
                     <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed border-t-2 border-zinc-800 pt-3">
-                      Memimpin arah strategi organisasi, menjaga keselarasan visi, serta mewakili HIMASI secara internal dan eksternal dengan penuh integritas.
+                      Memimpin arah strategi organisasi, menjaga keselarasan visi, serta mewakili HIMASI secara internal dan eksternal.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ================= KARTU 2: WAKIL KETUA HIMPUNAN ================= */}
+            {/* WAKAHIM */}
             <div 
-              className="p-elem lg:mb-20 mb-28 relative group w-full max-w-2xl cursor-pointer transition-transform duration-300 ease-out"
+              className="p-elem relative group w-full max-w-2xl cursor-pointer transition-transform duration-300 ease-out"
               style={{ transform: `rotateY(${mousePos.x * 10}deg) rotateX(${-mousePos.y * 10}deg)` }}
             >
-              {/* Persona 5 Explosive Comic Backdrop */}
               <div className="absolute -inset-4 bg-persona transform rotate-2 border-4 border-black group-hover:scale-102 group-hover:rotate-4 transition-all duration-300"></div>
               <div className="absolute -inset-2 bg-white transform -rotate-1 border-4 border-black group-hover:-rotate-2 transition-all duration-300"></div>
 
               <div className="relative bg-black border-4 border-white p-6 sm:p-8 shadow-[16px_16px_0px_#000] group-hover:shadow-[22px_22px_0px_#124D1C] transition-all duration-300">
-                
-                {/* Comic Corner Stamp */}
                 <div className="absolute -top-5 -left-5 bg-persona-light text-black font-black italic px-4 py-2 border-3 border-black text-xs sm:text-sm transform -rotate-12 shadow-[4px_4px_0px_#000] z-30">
                   CO-LEADER // 02
                 </div>
-                <div className="absolute top-0 right-0 w-12 h-12 bg-persona-light border-l-4 border-b-4 border-black z-20 group-hover:w-16 group-hover:h-16 transition-all"></div>
-
                 <div className="grid sm:grid-cols-12 gap-6 items-center">
-                  {/* Frame Foto WAKAHIM */}
                   <div className="sm:col-span-5 w-full h-72 sm:h-80 bg-zinc-950 border-3 border-black relative overflow-hidden flex items-center justify-center p-2 shadow-[6px_6px_0px_#000]">
-                    <span className="absolute top-2 left-2 bg-white text-black text-[9px] font-black tracking-tighter px-2 py-0.5 border-2 border-black transform -rotate-6 z-20">
-                      POS // WAKAHIM
-                    </span>
                     <img
                       src="img/wakahim.webp"
                       alt="Wakil Ketua Himpunan"
-                      className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-2 drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] z-10"
+                      className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-110 drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] z-10"
                     />
-                    <div className="absolute inset-0 bg-persona/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-15"></div>
                   </div>
-
-                  {/* Detail Informasi WAKAHIM */}
                   <div className="sm:col-span-7 space-y-4">
-                    <div className="inline-block bg-persona-light border-3 border-black px-3.5 py-1 shadow-[4px_4px_0px_#000] transform -skew-x-6 group-hover:skew-x-0 transition-all">
-                      <span className="font-['Montserrat'] font-black italic text-xs text-black uppercase tracking-wider block transform skew-x-6 group-hover:skew-x-0">
+                    <div className="inline-block bg-persona-light border-3 border-black px-3.5 py-1 shadow-[4px_4px_0px_#000] transform -skew-x-6">
+                      <span className="font-['Montserrat'] font-black italic text-xs text-black uppercase tracking-wider block">
                         WAKIL KETUA HIMPUNAN
                       </span>
                     </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-tight transform -skew-x-3 group-hover:translate-x-1 transition-transform">
+                    <h3 className="text-2xl sm:text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-tight">
                       Ardi Zakaria
                     </h3>
-
                     <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed border-t-2 border-zinc-800 pt-3">
-                      Mengkoordinasikan kinerja antar departemen internal dan memastikan kelancaran serta keberlanjutan seluruh program kerja organisasi.
+                      Mengkoordinasikan kinerja antar departemen internal dan memastikan kelancaran seluruh program kerja.
                     </p>
                   </div>
                 </div>
@@ -189,6 +171,42 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
             </div>
 
           </div>
+
+          {/* SECTION ANGGOTA BPH DI BAGIAN BAWAH */}
+          <div className="w-full max-w-4xl mt-8 pt-8 border-t-4 border-dashed border-white">
+            <div className="text-center mb-8">
+              <span className="bg-persona text-white font-black italic text-xs px-3 py-1 border border-black transform -skew-x-6 inline-block">
+                EXECUTIVE BOARD // BPH
+              </span>
+              <h3 className="text-2xl sm:text-4xl font-['Montserrat'] font-black italic text-white uppercase mt-2">
+                ANGGOTA BPH
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-24">
+              {BPH_MEMBERS.map((bph, index) => (
+                <div
+                  key={index}
+                  className="bg-black border-3 border-white p-4 shadow-[8px_8px_0px_#000] hover:shadow-[12px_12px_0px_#124D1C] transition-all transform hover:-translate-y-1"
+                >
+                  <div className="w-full h-44 bg-zinc-900 border border-zinc-700 overflow-hidden mb-3 relative flex items-center justify-center">
+                    <img
+                      src={bph.img}
+                      alt={bph.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <h4 className="text-lg font-['Montserrat'] font-black italic text-white uppercase">
+                    {bph.name}
+                  </h4>
+                  <span className="text-xs text-persona-light font-bold">
+                    {bph.role}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
