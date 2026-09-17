@@ -7,12 +7,12 @@ interface BPHMember {
 }
 
 const BPH_MEMBERS: BPHMember[] = [
-  { name: "Dhiya", role: "Pengurus BPH", img: "img/dhiya-bph.png" },
-  { name: "Genta", role: "Pengurus BPH", img: "img/genta-bph.png" },
-  { name: "Nesya", role: "Pengurus BPH", img: "img/nesya-bph.png" },
-  { name: "Sanda", role: "Pengurus BPH", img: "img/sanda-bph.png" },
-  { name: "Syifa", role: "Pengurus BPH", img: "img/syifa-bph.png" },
-  { name: "Aldi", role: "Pengurus BPH", img: "img/aldi-bph.png" },
+  { name: "Genta", role: "Ketua Umum", img: "img/genta-bph.png" },
+  { name: "Aldi", role: "Wakil Ketua Umum", img: "img/aldi-bph.png" },
+  { name: "Sanda", role: "Sekretaris Umum 1", img: "img/sanda-bph.png" },
+  { name: "Nesya", role: "Sekretaris Umum 2", img: "img/nesya-bph.png" },
+  { name: "Syifa", role: "Bendahara 1", img: "img/syifa-bph.png" },
+  { name: "Dhiya", role: "Bendahara 2", img: "img/dhiya-bph.png" },
 ];
 
 interface SectionProps {

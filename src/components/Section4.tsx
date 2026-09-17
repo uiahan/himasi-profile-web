@@ -17,53 +17,15 @@ export interface DepartmentItem {
 // Data Departemen & Anggotanya berdasarkan daftar nama file
 const DEPARTMENTS: DepartmentItem[] = [
   {
-    id: "HUKESMA",
-    logo: "img/hukesma.jpeg",
-    title: "HUKESMA",
-    desc: "Departemen Hubungan Kesejahteraan Mahasiswa (HUKESMA) merupakan departemen dalam Himpunan Mahasiswa Sistem Informasi (HIMASI) yang berperan sebagai penghubung antara mahasiswa, organisasi, dan pihak eksternal.",
-    members: [
-      { name: "Fauzan", role: "Anggota HUKESMA", img: "img/fauzan-hukesma.png" },
-      { name: "Hummaira", role: "Anggota HUKESMA", img: "img/hummaira-hukesma.png" },
-      { name: "Resi", role: "Anggota HUKESMA", img: "img/resi-hukesma.png" },
-      { name: "Reva", role: "Anggota HUKESMA", img: "img/reva-hukesma.png" },
-      { name: "Anisa", role: "Anggota HUKESMA", img: "img/anisa-hukesma.png" },
-    ],
-  },
-  {
-    id: "EKRAF",
-    logo: "img/LOGO-EKRAF.jpg",
-    title: "EKRAF",
-    desc: "Departemen Ekonomi Kreatif (EKRAF) berfokus pada pengembangan jiwa kewirausahaan, pendanaan mandiri organisasi, dan inovasi bisnis kreatif.",
-    members: [
-      { name: "Hilma", role: "Anggota EKRAF", img: "img/hilma-ekraf.png" },
-      { name: "Afriza", role: "Anggota EKRAF", img: "img/afriza-ekraf.png" },
-      { name: "Daud", role: "Anggota EKRAF", img: "img/daud-ekraf.png" },
-    ],
-  },
-  {
-    id: "PM",
-    logo: "img/LOGO-PM-NO-BG.png",
-    title: "PM",
-    desc: "Menjadikan Departemen Pengabdian Masyarakat HIMASI sebagai motor penggerak pengabdian yang inklusif, berkelanjutan, dan berdampak nyata.",
-    members: [
-      { name: "Devina", role: "Anggota PM", img: "img/devina-pm.png" },
-      { name: "Ghifran", role: "Anggota PM", img: "img/ghifran-pm.png" },
-      { name: "Ludra", role: "Anggota PM", img: "img/ludra-pm.png" },
-      { name: "Marlinda", role: "Anggota PM", img: "img/marlinda-pm.png" },
-      { name: "Nabila", role: "Anggota PM", img: "img/nabila-pm.png" },
-      { name: "Aksal", role: "Anggota PM", img: "img/aksal-pm.png" },
-    ],
-  },
-  {
     id: "PSDA",
     logo: "img/logo-PSDA-(2).png",
     title: "PSDA",
     desc: "Departemen Pemberdayaan Sumber Daya Akademik (PSDA) merupakan elemen strategis dalam HIMASI yang berperan sebagai fasilitator pengembangan potensi akademik.",
     members: [
+      { name: "Shinta", role: "Kepala Departemen PSDA", img: "img/shinta-psda.png" },
+      { name: "Danesya", role: "Sekretaris PSDA", img: "img/danesya-psda.png" },
       { name: "Raffi", role: "Anggota PSDA", img: "img/raffi-psda.png" },
-      { name: "Shinta", role: "Anggota PSDA", img: "img/shinta-psda.png" },
       { name: "Farhan", role: "Anggota PSDA", img: "img/farhan-psda.jpg" },
-      { name: "Danesya", role: "Anggota PSDA", img: "img/danesya-psda.png" },
     ],
   },
   {
@@ -72,12 +34,50 @@ const DEPARTMENTS: DepartmentItem[] = [
     title: "PSDM",
     desc: "Departemen Pemberdayaan Sumber Daya Mahasiswa (PSDM) memiliki peran penting dalam membina dan mengembangkan kualitas mahasiswa Sistem Informasi.",
     members: [
+      { name: "Aurin", role: "Kepala Departemen PSDM", img: "img/aurin-psdm.png" },
+      { name: "Vina", role: "Sekretaris PSDM", img: "img/vina-psdm.png" },
       { name: "Haykal", role: "Anggota PSDM", img: "img/haykal-psdm.png" },
       { name: "Satura", role: "Anggota PSDM", img: "img/satura-psdm.png" },
       { name: "Vanesh", role: "Anggota PSDM", img: "img/vanesh-psdm.png" },
-      { name: "Vina", role: "Anggota PSDM", img: "img/vina-psdm.png" },
       { name: "Arya", role: "Anggota PSDM", img: "img/arya-psdm.png" },
-      { name: "Aurin", role: "Anggota PSDM", img: "img/aurin-psdm.png" },
+    ],
+  },
+  {
+    id: "HUKESMA",
+    logo: "img/hukesma.jpeg",
+    title: "HUKESMA",
+    desc: "Departemen Hubungan Kesejahteraan Mahasiswa (HUKESMA) merupakan departemen dalam Himpunan Mahasiswa Sistem Informasi (HIMASI) yang berperan sebagai penghubung antara mahasiswa, organisasi, dan pihak eksternal.",
+    members: [
+      { name: "Anisa", role: "Kepala Departemen HUKESMA", img: "img/anisa-hukesma.png" },
+      { name: "Resi", role: "Sekretaris HUKESMA", img: "img/resi-hukesma.png" },
+      { name: "Fauzan", role: "Anggota HUKESMA", img: "img/fauzan-hukesma.png" },
+      { name: "Hummaira", role: "Anggota HUKESMA", img: "img/hummaira-hukesma.png" },
+      { name: "Reva", role: "Anggota HUKESMA", img: "img/reva-hukesma.png" },
+    ],
+  },
+  {
+    id: "EKRAF",
+    logo: "img/LOGO-EKRAF.jpg",
+    title: "EKRAF",
+    desc: "Departemen Ekonomi Kreatif (EKRAF) berfokus pada pengembangan jiwa kewirausahaan, pendanaan mandiri organisasi, dan inovasi bisnis kreatif.",
+    members: [
+      { name: "Hilma", role: "Kepala Departemen EKRAF", img: "img/hilma-ekraf.png" },
+      { name: "Daud", role: "Sekretaris EKRAF", img: "img/daud-ekraf.png" },
+      { name: "Afriza", role: "Anggota EKRAF", img: "img/afriza-ekraf.png" },
+    ],
+  },
+  {
+    id: "PM",
+    logo: "img/LOGO-PM-NO-BG.png",
+    title: "PM",
+    desc: "Menjadikan Departemen Pengabdian Masyarakat HIMASI sebagai motor penggerak pengabdian yang inklusif, berkelanjutan, dan berdampak nyata.",
+    members: [
+      { name: "Marlinda", role: "Kepala Departemen PM", img: "img/marlinda-pm.png" },
+      { name: "Nabila", role: "Sekretaris PM", img: "img/nabila-pm.png" },
+      { name: "Devina", role: "Anggota PM", img: "img/devina-pm.png" },
+      { name: "Ghifran", role: "Anggota PM", img: "img/ghifran-pm.png" },
+      { name: "Ludra", role: "Anggota PM", img: "img/ludra-pm.png" },
+      { name: "Aksal", role: "Anggota PM", img: "img/aksal-pm.png" },
     ],
   },
   {
@@ -86,7 +86,7 @@ const DEPARTMENTS: DepartmentItem[] = [
     title: "MNC",
     desc: "Departemen Media & Creative HIMASI sebagai pusat kreativitas inovatif dan profesional dalam membangun identitas visual serta komunikasi digital.",
     members: [
-      { name: "Nabilla", role: "Anggota MNC", img: "img/nabilla-mnc.png" },
+      { name: "Nabilla", role: "Kepala Departemen MNC", img: "img/nabilla-mnc.png" },
       { name: "Padlan", role: "Anggota MNC", img: "img/padlan-mnc.png" },
       { name: "Ananda", role: "Anggota MNC", img: "img/ananda-mnc.png" },
       { name: "Deasy", role: "Anggota MNC", img: "img/deasy-mnc.png" },
