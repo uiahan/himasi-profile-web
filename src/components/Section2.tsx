@@ -160,7 +160,7 @@ const Section2 = forwardRef<HTMLElement, SectionProps>(({ isActive, isLeaving, o
                       </span>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-['Montserrat'] font-black italic uppercase text-white tracking-tight">
-                      Ardi Zakaria
+                      Aldi Zakaria
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed border-t-2 border-zinc-800 pt-3">
                       Mengkoordinasikan kinerja antar departemen internal dan memastikan kelancaran seluruh program kerja.

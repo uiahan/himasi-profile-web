@@ -74,10 +74,10 @@ const DEPARTMENTS: DepartmentItem[] = [
     members: [
       { name: "Marlinda", role: "Kepala Departemen PM", img: "img/marlinda-pm.png" },
       { name: "Nabila", role: "Sekretaris PM", img: "img/nabila-pm.png" },
-      { name: "Devina", role: "Anggota PM", img: "img/devina-pm.png" },
       { name: "Ghifran", role: "Anggota PM", img: "img/ghifran-pm.png" },
       { name: "Ludra", role: "Anggota PM", img: "img/ludra-pm.png" },
       { name: "Aksal", role: "Anggota PM", img: "img/aksal-pm.png" },
+      { name: "Deasy", role: "Anggota PM", img: "img/deasy-mnc.png" },
     ],
   },
   {
@@ -89,7 +89,7 @@ const DEPARTMENTS: DepartmentItem[] = [
       { name: "Nabilla", role: "Kepala Departemen MNC", img: "img/nabilla-mnc.png" },
       { name: "Padlan", role: "Anggota MNC", img: "img/padlan-mnc.png" },
       { name: "Ananda", role: "Anggota MNC", img: "img/ananda-mnc.png" },
-      { name: "Deasy", role: "Anggota MNC", img: "img/deasy-mnc.png" },
+      { name: "Devina", role: "Anggota MNC", img: "img/devina-pm.png" },
     ],
   },
 ];
