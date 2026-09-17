@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, type FormEvent } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 import Section1 from "./components/Section1";
@@ -144,11 +144,6 @@ export default function App(): React.JSX.Element {
     goToSection(0);
   };
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>): void => {
-    e.preventDefault();
-    alert("Pesan Terkirim!");
-  };
-
   return (
     <>
       {/* CUSTOM CURSOR */}
@@ -288,7 +283,6 @@ export default function App(): React.JSX.Element {
           isActive={currentIndex === 4}
           isLeaving={leavingIndex === 4}
           onScroll={checkScrollState}
-          onSubmit={handleFormSubmit}
         />
       </main>
 
