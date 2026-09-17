@@ -10,6 +10,15 @@ import { SlideUnlock } from "./components/SlideUnlock";
 
 type WiperState = "" | "animating" | "exiting";
 
+// Daftar Menu Section
+const SECTIONS_LIST = [
+  { id: 0, chapter: "CHAPTER 01", title: "HIMASI OVERVIEW" },
+  { id: 1, chapter: "CHAPTER 02", title: "PIMPINAN & BPH" },
+  { id: 2, chapter: "CHAPTER 03", title: "VISI & MISI" },
+  { id: 3, chapter: "CHAPTER 04", title: "DAFTAR DEPARTEMEN" },
+  { id: 4, chapter: "CHAPTER 05", title: "ALAMAT & SOSIAL MEDIA" },
+];
+
 export default function App(): React.JSX.Element {
   // Loading state
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
@@ -28,6 +37,7 @@ export default function App(): React.JSX.Element {
 
   // Modal State
   const [showRestartModal, setShowRestartModal] = useState<boolean>(false);
+  const [showNavMenu, setShowNavMenu] = useState<boolean>(false); // State Modal Menu Navigasi ESC
 
   // Custom Cursor Position State
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number }>({ x: -100, y: -100 });
@@ -51,7 +61,23 @@ export default function App(): React.JSX.Element {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // 2. Loading Screen Logic
+  // 2. Shortcut Tombol ESC untuk Menu Navigasi
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (showRestartModal) {
+          setShowRestartModal(false);
+        } else {
+          setShowNavMenu((prev) => !prev);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showRestartModal]);
+
+  // 3. Loading Screen Logic
   useEffect(() => {
     document.body.classList.add("is-loading");
 
@@ -82,7 +108,7 @@ export default function App(): React.JSX.Element {
     return () => clearInterval(timer);
   }, []);
 
-  // 3. Navigation State Logic
+  // 4. Navigation State Logic
   const checkScrollState = (): void => {
     setShowPrevBtn(currentIndex > 0);
     setShowNextBtn(currentIndex < 4);
@@ -92,9 +118,9 @@ export default function App(): React.JSX.Element {
     checkScrollState();
   }, [currentIndex, isLoading]);
 
-  // 4. Navigation / Transition Logic
+  // 5. Navigation / Transition Logic
   const goToSection = (newIndex: number): void => {
-    if (isTransitioning) return;
+    if (isTransitioning || newIndex === currentIndex) return;
     setIsTransitioning(true);
     setShowNextBtn(false);
     setShowPrevBtn(false);
@@ -121,6 +147,11 @@ export default function App(): React.JSX.Element {
       setWiperState("");
       setIsTransitioning(false);
     }, 800);
+  };
+
+  const handleSelectSection = (targetIndex: number) => {
+    setShowNavMenu(false);
+    goToSection(targetIndex);
   };
 
   const handleNextClick = (): void => {
@@ -252,6 +283,17 @@ export default function App(): React.JSX.Element {
         </div>
       </div>
 
+      {/* TOP FLOATING BUTTON (TRIGGER MENU ESC) */}
+      <div className="fixed top-4 left-4 z-50">
+        <button
+          onClick={() => setShowNavMenu(true)}
+          className="bg-black text-white border-2 sm:border-3 border-white px-3 py-1.5 sm:px-4 sm:py-2 font-['Montserrat'] font-black italic text-[10px] sm:text-xs uppercase tracking-wider transform -skew-x-12 shadow-[4px_4px_0px_#000] hover:bg-persona-light hover:text-black hover:skew-x-0 transition-all cursor-pointer flex items-center gap-2"
+        >
+          <span className="bg-persona text-white px-1.5 py-0.5 border border-black text-[10px] not-italic">ESC</span>
+          <span>MENU NAVIGATION</span>
+        </button>
+      </div>
+
       {/* MAIN VIEWPORT */}
       <main id="main-viewport" className="w-screen h-screen relative overflow-hidden">
         <Section1
@@ -360,6 +402,76 @@ export default function App(): React.JSX.Element {
                 >
                   YA, KEMBALI!
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ESC NAVIGATION MENU MODAL */}
+      {showNavMenu && (
+        <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md select-none animate-fadeIn">
+          <div className="relative w-full max-w-xl transform -rotate-1">
+            {/* Layer Latar Belakang Modal */}
+            <div className="absolute -inset-3 bg-persona transform rotate-2 border-4 border-black"></div>
+
+            {/* Kontainer Utama Modal */}
+            <div className="relative bg-black border-4 border-white p-6 sm:p-8 shadow-[16px_16px_0px_#000]">
+              
+              {/* Header Modal */}
+              <div className="flex items-center justify-between border-b-4 border-white pb-4 mb-6">
+                <div className="bg-persona-light text-black font-['Montserrat'] font-black italic px-4 py-1.5 border-3 border-black text-xs sm:text-sm uppercase transform -skew-x-12 shadow-[4px_4px_0px_#000]">
+                  SYSTEM NAVIGATION // ESC MENU
+                </div>
+                <button
+                  onClick={() => setShowNavMenu(false)}
+                  className="bg-red-600 hover:bg-white hover:text-black text-white font-black px-3 py-1 border-2 border-white text-xs transform skew-x-12 transition-all cursor-pointer shadow-[3px_3px_0px_#000]"
+                >
+                  [ ESC / CLOSE ]
+                </button>
+              </div>
+
+              {/* List Pilihan Section */}
+              <div className="space-y-3">
+                {SECTIONS_LIST.map((item) => {
+                  const isCurrent = currentIndex === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleSelectSection(item.id)}
+                      className={`w-full group flex items-center justify-between p-3 sm:p-4 border-3 border-black text-left transform -skew-x-6 transition-all cursor-pointer shadow-[6px_6px_0px_#000] ${
+                        isCurrent
+                          ? "bg-persona-light text-black font-black"
+                          : "bg-zinc-900 text-white hover:bg-white hover:text-black hover:skew-x-0"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 sm:gap-4 transform skew-x-6 group-hover:skew-x-0 transition-transform">
+                        <span className={`font-['Montserrat'] font-black italic text-xs sm:text-sm px-2 py-0.5 border-2 border-black ${
+                          isCurrent ? "bg-black text-white" : "bg-persona text-white"
+                        }`}>
+                          {item.chapter}
+                        </span>
+                        <span className="font-['Montserrat'] font-black italic text-sm sm:text-base uppercase">
+                          {item.title}
+                        </span>
+                      </div>
+
+                      {isCurrent ? (
+                        <span className="font-['Montserrat'] font-black italic text-[10px] sm:text-xs bg-black text-persona-light px-2 py-1 uppercase transform skew-x-6">
+                          ACTIVE
+                        </span>
+                      ) : (
+                        <i className="fa-solid fa-arrow-right text-sm sm:text-lg opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all"></i>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Footer Modal */}
+              <div className="mt-6 pt-4 border-t-2 border-zinc-800 flex justify-between items-center text-[10px] sm:text-xs text-gray-400 font-['Montserrat'] italic font-bold">
+                <span>TEKAN <strong className="text-persona-light">ESC</strong> UNTUK MENUTUP</span>
+                <span>HIMASI UBSI</span>
               </div>
             </div>
           </div>
